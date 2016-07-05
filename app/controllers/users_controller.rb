@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+  before_filter :authorize
+
+  def profile
+    unless current_user
+      redirect_to login_path
+    end
+  end
+
   def new
   end
 
@@ -11,6 +19,10 @@ class UsersController < ApplicationController
     else
       redirect_to '/signup'
     end
+  end
+
+  def forgot
+
   end
 
   private

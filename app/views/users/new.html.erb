@@ -1,11 +1,67 @@
-<h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
 
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+<div class="account-pages"></div>
+<div class="clearfix"></div>
+<div class="wrapper-page">
+  <div class="text-center">
+    <%= show_logo %>
+  </div>
+  <div class="m-t-40 card-box">
+    <div class="text-center">
+      <h4 class="text-uppercase font-bold m-b-0">Register</h4>
+    </div>
+    <div class="panel-body">
+      <%= form_for :user, url: '/users', html: { class: "form-horizontal m-t-20" } do |f| %>
 
-<% end %>
+      <div class="form-group ">
+        <div class="col-xs-12">
+          <%= f.text_field :name, class: "form-control", required: "true", placeholder: "Name" %>
+        </div>
+      </div>
+
+      <div class="form-group ">
+        <div class="col-xs-12">
+          <%= f.text_field :email, class: "form-control", required: "true", placeholder: "Email" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-12">
+          <%= f.password_field :password, class: "form-control", required: "true", placeholder: "Password" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-12">
+          <%= f.password_field :password_confirmation, class: "form-control", required: "true", placeholder: "Password confirmation" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div class="checkbox checkbox-custom">
+            <input id="checkbox-signup" type="checkbox" checked="checked">
+            <label for="checkbox-signup">I accept <a href="#">Terms and Conditions</a></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group text-center m-t-40">
+        <div class="col-xs-12">
+          <%= f.button "Submit", class: "btn btn-custom btn-bordred btn-block waves-effect waves-light" %>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+  <!-- end card-box -->
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <p class="text-muted">Already have account? <b><%= link_to "Sign in", login_path, class: "text-primary m-l-5" %></b> </p>
+    </div>
+  </div>
+
+</div>
+<!-- end wrapper page -->
