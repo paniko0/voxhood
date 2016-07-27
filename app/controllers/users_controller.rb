@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authorize
+  before_filter :authorize, only: :profile
 
   def profile
     unless current_user
