@@ -22,11 +22,18 @@ require 'rspec/rails'
 #
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+module Helpers
+  def last_response_as_hash
+    JSON.parse(response.body, symbolize_names: true)
+  end
+end
+
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include Helpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -65,7 +72,7 @@ RSpec.configure do |config|
       example.run
     end
   end
-  
+
 end
 
 Shoulda::Matchers.configure do |config|
