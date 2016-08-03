@@ -6,7 +6,7 @@ describe "GET /podcast page" do
     it "shows the most downlodable podcast" do
       visit '/podcasts'
 
-      #TODO: expectations
+      #TODO: expectations; TBD
     end
 
   end

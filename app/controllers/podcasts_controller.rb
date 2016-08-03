@@ -9,4 +9,8 @@ class PodcastsController < ApplicationController
     end
   end
 
+  def search
+    
+  end
+
 end
