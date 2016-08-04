@@ -9,4 +9,17 @@ class ItunesResult
     @feed_url = json.feedUrl
     @art = json.artworkUrl100
   end
+
+  def last_episodes
+    arr = []
+
+    feed = Feedjira::Feed.fetch_and_parse feed_url
+    feed.entries.each_with_index do |episode, index|
+      arr << episode
+
+      break if index == 2
+    end
+
+    return arr
+  end
 end
