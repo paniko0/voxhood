@@ -8,22 +8,28 @@ class ItunesService
 
   def get
     result = self.class.get("/search", @options)
-    json = JSON.parse(result, object_class: OpenStruct)
-    if json.resultCount > 0
-      # TODO: should we parse this or return json directly?
-      return build_object(json)
-    end
+    json = JSON.parse(result, symbolize_names: true)
+
+    return build_object(json) if json[:resultCount] > 0
 
     nil
   end
 
   private
     def build_object(json)
-      arr = []
-      json.results.each do |result|
-        arr << ItunesResult.new(result)
+      content = Content.new
+
+      json[:results].each do |result|
+        podcast = Podcast.where(itunes_id: result[:collectionId]).first_or_create do |podcast|
+          podcast.name = result[:artistName]
+          podcast.track_name = result[:trackName]
+          podcast.feed_url = result[:feedUrl]
+          podcast.art = result[:artworkUrl100]
+        end
+
+        content.podcasts << podcast
       end
 
-      return arr
+      return content
     end
 end

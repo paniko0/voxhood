@@ -15,9 +15,11 @@ describe "Podcast API" do
 
       last_response_as_hash.each do |json|
         expect(json[:id]).to_not be_nil
+        expect(json[:itunes_id]).to_not be_nil
         expect(json[:name]).to_not be_nil
-        expect(json[:author]).to_not be_nil
-        expect(json[:image]).to_not be_nil
+        expect(json[:track_name]).to_not be_nil
+        expect(json[:feed_url]).to_not be_nil
+        expect(json[:art]).to_not be_nil
         expect(json[:created_at]).to_not be_nil
         expect(json[:updated_at]).to_not be_nil
       end

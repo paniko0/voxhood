@@ -6,7 +6,7 @@ describe PodcastCrawler do
       it "returns PodcastSerializer object" do
         podcast_serializer = PodcastCrawler.new.crawl("nerdcast")
 
-        expect(podcast_serializer).to be_a PodcastsList
+        expect(podcast_serializer).to be_a Content
       end
     end
   end

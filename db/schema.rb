@@ -13,9 +13,11 @@
 ActiveRecord::Schema.define(version: 20160729033540) do
 
   create_table "podcasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint   "itunes_id"
     t.string   "name"
-    t.string   "author"
-    t.string   "image"
+    t.string   "track_name"
+    t.string   "feed_url"
+    t.string   "art"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
