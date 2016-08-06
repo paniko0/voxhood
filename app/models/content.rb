@@ -1,4 +1,5 @@
 class Content
+  include ActiveModel::Model
 
   attr_accessor :podcasts
 

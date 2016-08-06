@@ -4,9 +4,13 @@ describe PodcastCrawler do
   context "when searches for a podcast" do
     context "and something was found" do
       it "returns PodcastSerializer object" do
-        podcast_serializer = PodcastCrawler.new.crawl("nerdcast")
+        VCR.use_cassette('ITUNES_SEARCH_WITH_EPISODES') do
+          content = PodcastCrawler.new.crawl("nerdcast")
 
-        expect(podcast_serializer).to be_a Content
+          expect(content).to be_a Content
+          expect(content.podcasts.size).to eq 35
+          expect(content.podcasts[1].last_episodes.size).to eq 3
+        end
       end
     end
   end
