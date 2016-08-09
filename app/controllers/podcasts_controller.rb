@@ -1,18 +1,11 @@
 class PodcastsController < ApplicationController
 
   def index
-    if params['q']
-      @podcasts = PodcastCrawler.new.crawl(params['q'])
-    else
-      content = Content.new
-      content.podcasts = Podcast.limit(10)
-
-      @podcasts = content
-    end
+    @podcasts = FindPodcast.new.search(params)
 
     respond_to do |format|
       format.html
-      format.json { render json: @podcasts.to_json }
+      format.json { render json: @podcasts, serializer: ContentSerializer }
     end
   end
 

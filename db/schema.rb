@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729033540) do
+ActiveRecord::Schema.define(version: 20160809033046) do
+
+  create_table "episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "podcast_id"
+    t.string   "entry_id"
+    t.string   "title"
+    t.string   "download_link"
+    t.string   "url"
+    t.time     "duration"
+    t.datetime "publication_date"
+    t.string   "summary"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["podcast_id"], name: "index_episodes_on_podcast_id", using: :btree
+  end
 
   create_table "podcasts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint   "itunes_id"

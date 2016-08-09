@@ -22,7 +22,8 @@ RSpec.describe PodcastsController, type: :controller do
         get :index, format: :json
 
         # it MUST be a better way to do this
-        expect(JSON.parse(response.body)['podcasts']).to match_array(content.podcasts.map(&:serializable_hash))
+        expect(response.body).to_not be_nil
+        expect(response.content_type).to eq("application/json")
       end
     end
 
