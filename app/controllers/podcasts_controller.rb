@@ -5,7 +5,7 @@ class PodcastsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @podcasts, serializer: ContentSerializer }
+      format.json { render json: @podcasts, serializer: ContentSerializer, include: '**' }
     end
   end
 

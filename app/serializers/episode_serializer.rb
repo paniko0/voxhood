@@ -1,3 +1,3 @@
 class EpisodeSerializer < ActiveModel::Serializer
-  attributes :title
+  attributes :title, :entry_id, :download_link, :summary
 end

@@ -32,7 +32,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
 gem 'feedjira'
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~>0.10.2'
+gem 'sidekiq'
+
+gem 'rack-protection', '~> 2.0', github: 'sinatra/rack-protection', require: false
+gem 'sinatra', github: 'sinatra/sinatra', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

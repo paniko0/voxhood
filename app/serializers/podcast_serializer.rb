@@ -1,5 +1,7 @@
 class PodcastSerializer < ActiveModel::Serializer
-  attributes :id, :itunes_id, :name, :track_name, :feed_url, :art
+  has_many :episodes do
+    Episode.where(podcast: object).limit(3)
+  end
 
-  has_many :episodes
+  attributes :id, :itunes_id, :name, :track_name, :feed_url, :art
 end
