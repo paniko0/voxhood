@@ -19,6 +19,7 @@ default: &default
 
 development:
   <<: *default
+  pool: 50
   database: voxhood_development
 
 # Warning: The database defined as "test" will be erased and

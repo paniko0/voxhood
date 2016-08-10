@@ -8,7 +8,7 @@ class CreateEpisodes < ActiveRecord::Migration[5.0]
       t.string :url
       t.time :duration
       t.datetime :publication_date
-      t.string :summary
+      t.text :summary
 
       t.timestamps
     end

@@ -1,11 +1,11 @@
-class GetEpisodesJob < ApplicationJob
-  queue_as :get_episodes
+class GetEpisodesJob < ActiveJob::Base
+  queue_as :default
 
-  def perform(*podcast)
-    puts "====================== #{podcast}"
-    # feed = Feedjira::Feed.fetch_and_parse podcast.feed_url
-    # feed.entries.each do |episode|
-    #   podcast.episodes << Episode.new(entry_id: episode.entry_id, title: episode.title, download_link: episode.enclosure_url, url: episode.url, duration: episode.itunes_duration, publication_date: episode.published, summary: episode.summary)
-    # end
+  rescue_from(StandardError) do |exception|
+    Rails.logger.error "An exception happend #{exception.message}"
+  end
+
+  def perform(podcast)
+    FetchFeed.new(podcast).fetch
   end
 end

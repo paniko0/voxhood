@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160809033046) do
     t.string   "url"
     t.time     "duration"
     t.datetime "publication_date"
-    t.string   "summary"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.text     "summary",          limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["podcast_id"], name: "index_episodes_on_podcast_id", using: :btree
   end
 
