@@ -4,4 +4,5 @@ class PodcastSerializer < ActiveModel::Serializer
   end
 
   attributes :id, :itunes_id, :name, :track_name, :feed_url, :art
+
 end

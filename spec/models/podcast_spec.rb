@@ -5,6 +5,17 @@ RSpec.describe Podcast, type: :model do
 
     subject(:podcast) { Podcast.new( itunes_id: "123", name: "Bla", track_name: "Bla", feed_url: "https://jovemnerd.com.br/feed-nerdcast/", art: "http://" ) }
 
+    before do
+      # sorted order
+      create(:episode, title: "NerdCast 525 - A Ciência do Humor", publication_date: Time.now - 3.day, podcast: podcast)
+      create(:episode, title: "NerdCast 524 - WWII: Guerra no Pacífico", publication_date: Time.now - 4.day, podcast: podcast)
+      create(:episode, title: "+ 1 Episode", publication_date: Time.now - 5.day, podcast: podcast)
+      create(:episode, title: "+ Another one", publication_date: Time.now - 6.day, podcast: podcast)
+      create(:episode, title: "NerdCast 526 - A revolução buffada dos eSports", publication_date: Time.now - 2.day, podcast: podcast)
+      create(:episode, title: "Empreendedor 19 - 5 admiráveis inovações", publication_date: Time.now - 1.day, podcast: podcast)
+      create(:episode, title: "NerdCast 527 - Action figures, bonecos e hominhos", publication_date: Time.now, podcast: podcast)
+    end
+
     it "returns last three episodes when no param informed" do
       VCR.use_cassette('NERDCAST_EPISODES') do
         last_episodes = subject.last_episodes

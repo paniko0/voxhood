@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "podcasts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "itunes_id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "track_name": {
+            "type": "string"
+          },
+          "feed_url": {
+            "type": "string"
+          },
+          "art": {
+            "type": "string"
+          },
+          "episodes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "entry_id": {
+                  "type": "string"
+                },
+                "download_link": {
+                  "type": "string"
+                },
+                "summary": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "title",
+                "entry_id",
+                "download_link",
+                "summary"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "itunes_id",
+          "name",
+          "track_name",
+          "feed_url",
+          "art",
+          "episodes"
+        ]
+      }
+    }
+  },
+  "required": [
+    "podcasts"
+  ]
+}

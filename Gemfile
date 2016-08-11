@@ -48,6 +48,7 @@ group :development, :test do
   gem 'pry'
   gem 'vcr'
   gem 'webmock'
+  gem 'json-schema'
 end
 
 group :test do
