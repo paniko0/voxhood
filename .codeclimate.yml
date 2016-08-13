@@ -7,6 +7,12 @@ engines:
     exclude_fingerprints:
       - c535affb0cb6ff88e46ad8c73be606e8
       - 8e0e63552bbc532ec129feeb07b701d1
+      - 36da7b86d22d182064bf65d399edf4f0 # VCR error
+      - e1b104f7bb4c9c5bb9212d22e2b14717 # VCR error
+      - 24cff46fa8695b38b77bc23afc389b50 # VCR error
+      - ec320cd4a4aa668b70bd9e9e93b7b84a # VCR error
+      - 5be954b5d23e01d30d8750d40a9962c1 # VCR error
+      - 22fbb783c9e076d2402167d6c53b77ba # VCR error
   csslint:
     enabled: true
   coffeelint:
