@@ -91,6 +91,8 @@ VCR.configure do |c|
   c.before_record do |i|
     i.response.body.force_encoding('UTF-8')
   end
+
+  c.ignore_hosts 'codeclimate.com'
 end
 
 RSpec::Matchers.define :match_response_schema do |schema|
