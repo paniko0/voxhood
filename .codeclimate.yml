@@ -7,6 +7,9 @@ engines:
     exclude_fingerprints:
       - c535affb0cb6ff88e46ad8c73be606e8
       - 8e0e63552bbc532ec129feeb07b701d1
+      - a4a0558a3bda5810fe57d81cd670d67d # fixme.config.strings
+      - c9cdec39002ae149e06f4231e3be824b # fixme.config.strings
+      - acac2d2ca326af6432ccaf64253a4037 # fixme.config.strings
   csslint:
     enabled: true
   coffeelint:
