@@ -1,24 +1,5 @@
-# README
+[![Code Climate](https://codeclimate.com/github/paniko0/voxhood/badges/gpa.svg)](https://codeclimate.com/github/paniko0/voxhood)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Test Coverage](https://codeclimate.com/github/paniko0/voxhood/badges/coverage.svg)](https://codeclimate.com/github/paniko0/voxhood/coverage)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[![Issue Count](https://codeclimate.com/github/paniko0/voxhood/badges/issue_count.svg)](https://codeclimate.com/github/paniko0/voxhood)
