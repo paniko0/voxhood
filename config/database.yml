@@ -50,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: voxhood_production
-  username: voxhood
-  password: <%= ENV['VOXHOOD_DATABASE_PASSWORD'] %>
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
