@@ -1,6 +1,24 @@
-<% @podcasts.each do |podcast| %>
-  <%= podcast.name %>
-  <%= podcast.author %>
-  <%= podcast.image %>
-  <br>
-<% end %>
+
+<div class="container">
+
+    <div class="row port m-b-20">
+        <div class="portfolioContainer">
+          <% @podcasts.podcasts.each do |podcast| %>
+            <div class="col-sm-6 col-lg-3 col-md-4 creative personal photography">
+                <div class="gal-detail thumb">
+                    <a href="<%= episode_path(podcast.itunes_id) %>" class="image-popup" title="Screenshot-2">
+                        <img src="<%= podcast.art %>" class="thumb-img" alt="work-thumbnail">
+                    </a>
+                    <h4><%= podcast.track_name %></h4>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, illo,
+                        iste itaque voluptas corrupti ratione reprehenderit magni similique.
+                    </p>
+                </div>
+            </div>
+          <% end %>
+        </div><!-- end portfoliocontainer-->
+    </div> <!-- End row -->
+
+</div>
+<!-- end container -->
