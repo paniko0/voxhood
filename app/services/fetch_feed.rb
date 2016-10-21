@@ -7,6 +7,7 @@ class FetchFeed
 
   def fetch
     feed = Feedjira::Feed.fetch_and_parse podcast.feed_url
+    @podcast.update(description: feed.description)
     feed.entries.each do |episode|
       unless Episode.exists?(entry_id: episode.entry_id)
         podcast.episodes << Episode.new(entry_id: episode.entry_id, title: episode.title, download_link: episode.enclosure_url, url: episode.url, duration: episode.itunes_duration, publication_date: episode.published, summary: episode.summary)
@@ -14,10 +15,12 @@ class FetchFeed
         Rails.logger.info "episode #{episode.entry_id} already exists"
       end
     end
+    return @podcast
   rescue Mysql2::Error => ex
     if ex.message == "Incorrect datetime value"
       podcast.episodes << Episode.new(entry_id: episode.entry_id, title: episode.title, download_link: episode.enclosure_url, url: episode.url, duration: episode.itunes_duration, publication_date: DateTime.now, summary: episode.summary)
     end
+    return @podcast
   end
 
   private

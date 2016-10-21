@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  resources :episodes
-  resources :podcasts
+  resources :podcasts do
+    resources :episodes
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "users#profile"

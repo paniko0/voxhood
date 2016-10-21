@@ -13,6 +13,12 @@ describe FetchFeed do
           expect{subject}.to change(Episode, :count).by(568)
         end
       end
+
+      it "updates podcast description" do
+        VCR.use_cassette("NERDCAST_EPISODES") do
+          expect(subject.description).to eq("O mundo vira piada no Jovem Nerd")
+        end
+      end
     end
 
     context "do nothing when episode exists" do

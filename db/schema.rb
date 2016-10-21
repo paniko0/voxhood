@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809033046) do
+ActiveRecord::Schema.define(version: 20161021035925) do
 
   create_table "episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "podcast_id"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20160809033046) do
     t.string   "track_name"
     t.string   "feed_url"
     t.string   "art"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
